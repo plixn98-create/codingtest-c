@@ -1,4 +1,3 @@
-```
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -88,5 +87,5 @@ int main(void) {
     printf("%d\n", result); // 최단 거리 출력
     return 0;
 }
-```
+
 
