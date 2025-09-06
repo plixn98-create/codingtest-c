@@ -12,6 +12,13 @@ typedef struct {
     int x, y;
 } Node;
 
+/*
+struct { int x, y; } // 좌표 (x, y) 쌍을 표현.
+typedef ... Node; // struct 구조체 타입을 Node로 명명
+
+--> Node p; 선언 가능 : Node start = {0, 0};   // 시작 좌표 (0,0) 
+*/
+
 int queue[MAX * MAX][2];
 int front = 0, rear = 0;
 
@@ -75,6 +82,23 @@ int bfs(int maps[][MAX], int n, int m) {
 int main(void) {
     // 예시 지도 (5x5)
     int n = 5, m = 5;
+    
+    // int rows = sizeof(maps) / sizeof(maps[0]);
+    // int cols = sizeof(maps[0]) / sizeof(maps[0][0]);(=MAX)
+     
+    /*
+    sizeof(maps) : 배열 전체 크기 (5 × MAX × sizeof(int))
+    sizeof(maps[0]) : 한 행(배열 한 줄)의 크기 (MAX × sizeof(int))
+
+    sizeof(maps[0]) : 한 행 크기 (MAX × sizeof(int))
+    sizeof(maps[0][0]) : 정수 하나 크기 (sizeof(int))
+    */
+
+    /* 깊은 복사 :
+    int copy[5][MAX];
+    memcpy(copy, maps, sizeof(maps));
+     */
+    
     int maps[5][MAX] = {
         {1, 0, 1, 1, 1},
         {1, 0, 1, 0, 1},
