@@ -21,7 +21,7 @@ char* solution(const char* my_string) {
         }
     }
 
-    answer[k] = '\0';  // 문자열 종료
+    answer[k] = '\0';  // 문자열 종료, 배열->문자열 변환
     return answer;
 }
 
