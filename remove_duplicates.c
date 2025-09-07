@@ -7,6 +7,7 @@ char* solution(const char* my_string) {
     int len = strlen(my_string);
     char* answer = (char*)malloc((len + 1) * sizeof(char)); // 결과 문자열
     int cnt[128] = {0};  // 아스키 코드 기준 카운트 (영문/공백이면 충분)
+    // int cnt[128] = {0, 0, 0, 0, ..., 0}; // 128개 전부
 
     // 1단계: 각 문자의 등장 횟수 세기
     for (int i = 0; i < len; i++) {
