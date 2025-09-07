@@ -40,6 +40,15 @@ bool empty(){
 int bfs(int **map, size_t rows, size_t cols,
         int startX, int startY, int endX, int endY) {
 
+	// 큐 인덱스 초기화
+    front = rear = 0;
+
+	// 범위 및 통행 가능 여부 확인
+    if (startX < 0 || startY < 0 || startX >= (int)cols || startY >= (int)rows) return -1;
+    if (endX   < 0 || endY   < 0 || endX   >= (int)cols || endY   >= (int)rows) return -1;
+    if (map[startY][startX] == 0 || map[endY][endX] == 0) return -1;
+	//
+	
 	int visited[MAX][MAX] = {0};
 	
 	push(startY,startX);
@@ -57,6 +66,8 @@ int bfs(int **map, size_t rows, size_t cols,
 			int ny = y+dy[i];
 			
 			if (nx<0 || nx>= cols || ny<0 || ny>= rows) continue;
+			if (map[ny][nx] == 0) continue;          // 벽
+            if (visited[ny][nx] != 0) continue;      // 이미 방문
 			
 			if (maps[nx][ny] == 1 && visited[nx][ny] == 0) {
                 		visited[nx][ny] = visited[x][y] + 1;
